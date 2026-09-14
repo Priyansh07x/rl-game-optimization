@@ -1,0 +1,38 @@
+game: snake
+agent: refined_dqn
+
+state:
+  shape: [4, 64, 64]
+
+network:
+  type: dueling_dqn
+  conv_channels: [16, 32, 64]
+  fully_connected_units: 256
+
+replay:
+  high_error_capacity: 35000
+  low_error_capacity: 15000
+  total_capacity: 50000
+  td_threshold: 0.5
+  high_error_fraction: 0.70
+  low_error_fraction: 0.30
+
+training:
+  batch_size: 32
+  learning_rate: 0.0001
+  gamma: 0.99
+  target_update_steps: 500
+  training_gap: 4
+
+epsilon:
+  start: 1.0
+  end: 0.02
+  decay_frames: 200000
+
+checkpoint:
+  interval_episodes: 100
+
+evaluation:
+  episodes: 100
+
+seed: 42

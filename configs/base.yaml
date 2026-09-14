@@ -1,0 +1,12 @@
+# Project-wide baseline configuration
+
+seed: 42
+device: "auto"  # Options: "auto", "cpu", "cuda"
+
+directories:
+  log_dir: "logs"
+  checkpoint_dir: "checkpoints"
+  model_dir: "models"
+  evaluation_dir: "evaluations"
+  plot_dir: "plots"
+  video_dir: "videos"

@@ -1,0 +1,43 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# Virtual environment
+.venv/
+venv/
+env/
+
+# IDE / editor
+.vscode/
+.idea/
+
+# Testing / coverage
+.pytest_cache/
+.coverage
+htmlcov/
+
+# RL project outputs
+checkpoints/*
+models/*
+logs/*
+evaluations/*
+plots/*
+videos/*
+
+# Keep directory structure
+!checkpoints/.gitkeep
+!models/.gitkeep
+!logs/.gitkeep
+!evaluations/.gitkeep
+!plots/.gitkeep
+!videos/.gitkeep
+
+# Jupyter
+.ipynb_checkpoints/
+
+# OS
+.DS_Store
+Thumbs.db
+.aider*
