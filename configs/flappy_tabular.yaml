@@ -1,0 +1,53 @@
+# Flappy Bird Tabular RL (Q-Learning & SARSA) Configuration
+
+game: flappy
+
+# Tabular Agent Hyperparameters
+agent:
+  algorithm: "q_learning"  # Algorithm selection: "q_learning" or "sarsa"
+  # Implementation defaults (NOT specified by authoritative plan; fully configurable):
+  alpha: 0.1               # Learning rate alpha parameter
+  gamma: 0.99              # Discount factor gamma parameter
+  # Authoritative plan requirements:
+  num_states: 75           # 5 (dx) x 5 (dy) x 3 (vy) = 75 discrete states
+  num_actions: 2           # 0 = flap, 1 = no-flap
+
+# Authoritative Epsilon Schedule (Part 5 requirement)
+epsilon:
+  start: 1.0               # Initial exploration rate
+  end: 0.05                # Minimum exploration rate
+  decay_episodes: 5000     # Linear decay horizon (episodes)
+
+# Training Parameters
+training:
+  # Implementation default (NOT specified by authoritative plan beyond 5,000 decay horizon; fully configurable):
+  episodes: 5000           # Total training episodes
+
+# Checkpoint Settings
+checkpoint:
+  # Implementation default (NOT specified by authoritative plan; fully configurable):
+  interval_episodes: 500   # Checkpoint saving frequency (episodes)
+
+# Seed for reproducibility
+seed: 42
+
+# Environment Parameters (aligned with authoritative Flappy requirements)
+environment:
+  env_id: "FlappyBird-v0"
+  use_lidar: false
+  discretization:
+    num_dx_bins: 5
+    num_dy_bins: 5
+    num_vy_bins: 3
+    total_states: 75
+  rewards:
+    survival: 0.5          # Authoritative survival reward
+    pipe_pass: 5.0         # Authoritative pipe pass reward
+    collision: -1000.0     # Authoritative terminal collision penalty
+
+# Directory Routing
+directories:
+  log_dir: "logs/flappy"
+  checkpoint_dir: "checkpoints/flappy"
+  model_dir: "models"
+  evaluation_dir: "evaluations/flappy"
