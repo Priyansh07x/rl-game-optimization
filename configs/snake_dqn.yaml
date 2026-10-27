@@ -18,6 +18,7 @@ replay:
   low_error_fraction: 0.30
 
 training:
+  episodes: 1000
   batch_size: 32
   learning_rate: 0.0001
   gamma: 0.99
@@ -31,6 +32,12 @@ epsilon:
 
 checkpoint:
   interval_episodes: 100
+  frequency: 100
+  save_dir: checkpoints/snake
+
+logging:
+  log_file: logs/snake_training.csv
+  verbose: true
 
 evaluation:
   episodes: 100

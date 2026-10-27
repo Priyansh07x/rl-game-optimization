@@ -1,0 +1,61 @@
+# Pac-Man DQN Configuration
+game: pacman
+agent: dqn
+
+# Environment
+environment:
+  max_episode_steps: 10000
+  render: false
+
+# State
+state:
+  shape: [4, 84, 84]
+  frame_stack: 4
+
+# Network
+# network:
+#   input_channels: 4
+#   conv_filters: [32, 64, 64]
+#   fc_size: 512
+#   dueling: true
+#   num_actions: 4
+network:
+  input_channels: 4
+  conv_filters: [32, 64, 64]
+  fc_size: 512
+  dueling: true
+  num_actions: 9
+
+# Training
+training:
+  episodes: 1000
+  batch_size: 32
+  learning_rate: 0.0001
+  gamma: 0.99
+  
+# Exploration
+exploration:
+  epsilon_start: 1.0
+  epsilon_end: 0.01
+  epsilon_decay_episodes: 500
+  
+# Replay
+replay:
+  capacity: 100000
+  
+# Target network
+target:
+  update_frequency: 1000
+
+# Checkpointing
+checkpoint:
+  frequency: 100
+  save_dir: checkpoints/pacman
+
+# Logging
+logging:
+  log_file: logs/pacman_training.csv
+  verbose: true
+
+# Reproducibility
+seed: 42
