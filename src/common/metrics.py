@@ -48,7 +48,7 @@ class MetricsLogger:
 
         mode = "a" if (file_exists and self.append) else "w"
         self._file = open(self.log_path, mode, newline="", encoding="utf-8")
-        self._writer = csv.DictWriter(self._file, fieldnames=self.columns)
+        self._writer = csv.DictWriter(self._file, fieldnames=self.columns, extrasaction="ignore")
 
         if not file_exists or not self.append or mode == "w":
             self._writer.writeheader()

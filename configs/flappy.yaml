@@ -1,0 +1,35 @@
+# Flappy Bird environment and discretization configuration
+
+game: flappy
+
+environment:
+  env_id: "FlappyBird-v0"
+  use_lidar: false
+  seed: 42
+
+discretization:
+  num_dx_bins: 5
+  num_dy_bins: 5
+  num_vy_bins: 3
+  total_states: 75
+  dx_edges: [0.0, 0.15, 0.30, 0.50]
+  dy_edges: [-0.10, -0.02, 0.02, 0.10]
+  vy_edges: [-0.20, 0.20]
+
+actions:
+  flap: 0
+  no_flap: 1
+  total_actions: 2
+
+rewards:
+  survival: 0.5
+  pipe_pass: 5.0
+  collision: -1000.0
+
+directories:
+  log_dir: "logs/flappy"
+  evidence_obs_dir: "observations/flappy"
+  evidence_reward_dir: "reward_traces/flappy"
+  evidence_episode_dir: "episode_traces/flappy"
+  model_dir: "models"
+  evaluation_dir: "evaluations/flappy"
